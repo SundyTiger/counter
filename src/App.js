@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import Count from "./components/display.component";
+import IncCount from "./components/increment.component";
+import DecCount from "./components/decrement.component";
 function App() {
+  const [count, setcount] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-fluid">
+      <div className="card w-25 mt-5 mx-auto">
+        <div className="card-body">
+          <Count key={1} count={count} />
+          <div className="d-flex">
+            <IncCount key={2} inc={setcount} count={count} />
+            <DecCount key={3} dec={setcount} count={count} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
